@@ -1,15 +1,15 @@
-import { useContext } from 'react';
 import SingleCountryCard from './SingleCountryCard';
-import { DataContext } from '../App';
+import { CardsListContainer } from './styles/CountriesList.styled';
+import { useGlobalContext } from '../context';
 
 const CountriesList = () => {
-  const { data } = useContext(DataContext);
+  const { countries } = useGlobalContext();
   return (
-    <div>
-      {data?.map((item, idx) => {
-        return <SingleCountryCard key={idx} {...item} />;
+    <CardsListContainer>
+      {countries?.map((country, idx) => {
+        return <SingleCountryCard key={idx} {...country} />;
       })}
-    </div>
+    </CardsListContainer>
   );
 };
 

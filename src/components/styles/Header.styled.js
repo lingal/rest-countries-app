@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
-  background-color: ${({ theme }) => theme.bg};
+  background-color: var(${({ theme }) => theme.ec});
   padding-block: 2rem;
   box-shadow: -2px 5px 5px 0px rgba(43, 56, 69, 0.10);
   -webkit-box-shadow: -2px 5px 5px 0px rgba(43, 56, 69, 0.10);

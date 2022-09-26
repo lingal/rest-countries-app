@@ -2,11 +2,10 @@ import styled from 'styled-components';
 
 export const FormContainer = styled.div`
   margin-top: 2rem;
-  max-width: 90%;
-  margin-inline: auto;
 
   form {
-    color: var(--clr-light-300);
+    color: var(${({ theme }) => theme.ic});
+    background-color: var(${({ theme }) => theme.ec});
     padding-inline: 2rem;
     padding-block: 1rem;
     border-radius: 5px;
@@ -19,10 +18,10 @@ export const FormContainer = styled.div`
     }
 
     input {
+      background: transparent;
       border: none;
       outline: none;
-      background: transparent;
-      color: inherit;
+      color: currentColor;
     }
   }
 `;

@@ -44,15 +44,23 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
+
+
 body {
   font-size: 0.875rem;
   font-family: 'Nunito Sans', sans-serif;
-	line-height: 1;
-	/* background-color: ${({ theme }) => theme.bg}; */
+	line-height: 1.5;
 	background-color: var(${({ theme }) => theme.bg});
 	color: var(${({ theme }) => theme.fc});
 	text-transform: capitalize;
 }
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
 ul {
 	list-style: none;
 }

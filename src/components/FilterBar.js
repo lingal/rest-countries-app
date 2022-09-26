@@ -3,13 +3,13 @@ import { DataContext } from '../App';
 import {FilterBarContainer} from './styles/FilterBar.styled';
 
 const FilterBar = () => {
-  const { data, setRegion } = useContext(DataContext);
+  // const { data, setRegion } = useContext(DataContext);
 
-  const newData = ['All', ...new Set(data.map((item) => item.region))];
+  // const newData = ['All', ...new Set(data.map((item) => item.region))];
 
   return (
     <FilterBarContainer>
-      <select onChange={(e) => setRegion(e.target.value)}>
+      {/* <select onChange={(e) => setRegion(e.target.value)}>
         <option value="">Filter by Region</option>
         {newData.map((region, idx) => {
           return (
@@ -18,7 +18,7 @@ const FilterBar = () => {
             </option>
           );
         })}
-      </select>
+      </select> */}
     </FilterBarContainer>
   );
 };

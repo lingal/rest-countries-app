@@ -1,27 +1,24 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { FormContainer } from './styles/SearchBar.styled';
-import { DataContext } from '../App';
-import useFetch from './useFetch';
+import { useGlobalContext } from '../context';
 
 const SearchBar = () => {
-  const { searchCountry, setSearchCountry } = useContext(DataContext);
+  const { setSearchCountry } = useGlobalContext();
 
-  const { data, setData } = useFetch(
-    'https://restcountries.com/v3.1/' +
-      `${!searchCountry ? 'all' : 'name/' + searchCountry}`
-  );
+  const handleSearch = (e) => {
+    setSearchCountry(e.target.value);
+  };
 
   return (
     <FormContainer>
       <form>
         <FaSearch />
-
         <input
           type="text"
           // value={searchCountry}
           placeholder="Search for a country..."
-          // onChange={}
+          onChange={handleSearch}
         />
       </form>
     </FormContainer>

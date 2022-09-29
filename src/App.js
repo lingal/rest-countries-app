@@ -10,7 +10,6 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './components/styles/GlobalStyle';
 import Header from './components/Header';
 
-const url = 'https://restcountries.com/v3.1/all';
 
 const Colors = {
   baseColors: {

@@ -3,12 +3,15 @@ import SearchBar from '../SearchBar';
 import FilterBar from '../FilterBar';
 import CountriesList from '../CountriesList';
 import { HomeContainer } from '../styles/Home.styled';
+import { FlexContainer } from '../styles/ControlBar.styled';
 
 const Home = () => {
   return (
     <HomeContainer>
-      <SearchBar />
-      <FilterBar />
+      <FlexContainer>
+        <SearchBar />
+        <FilterBar />
+      </FlexContainer>
       <CountriesList />
     </HomeContainer>
   );

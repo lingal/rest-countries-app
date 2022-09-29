@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const CountryCardContainer = styled.article`
+height: 100%;
   background-color: var(${({ theme }) => theme.ec});
   border-radius: 10px;
   box-shadow: 0px 0px 3px 3px rgba(43, 56, 69, 0.1);
@@ -10,19 +11,20 @@ export const CountryCardContainer = styled.article`
   position: relative;
 
   &:hover::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: hsla(0, 0%, 0%, 0.65);
+    border-radius: 10px;
     z-index: 1000;
   }
   img {
+    width: 100%;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
-    width: 100%;
     height: 11rem;
   }
   div {

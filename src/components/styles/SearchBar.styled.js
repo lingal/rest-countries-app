@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const FormContainer = styled.div`
-  margin-top: 2rem;
-
   form {
     color: var(${({ theme }) => theme.ic});
     background-color: var(${({ theme }) => theme.ec});
@@ -18,6 +16,7 @@ export const FormContainer = styled.div`
     }
 
     input {
+      width: 80%;
       background: transparent;
       border: none;
       outline: none;

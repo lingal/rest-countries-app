@@ -56,6 +56,13 @@ body {
 	text-transform: capitalize;
 }
 
+h1, h2 {
+	font-weight: var(--fw-800);
+}
+h3 {
+	font-weight: var(--fw-600);
+}
+
 img {
 	display: block;
 	max-width: 100%;
@@ -65,8 +72,57 @@ ul {
 	list-style: none;
 }
 
+a {
+ text-decoration: none;
+ color: inherit;
+}
+
 button {
 	color: inherit;
 }
+
+.loader {
+
+
+  margin: auto;
+
+
+  border: 20px solid #EAF0F6;
+
+
+  border-radius: 50%;
+
+
+  border-top: 20px solid #FF7A59;
+
+
+  width: 200px;
+
+
+  height: 200px;
+
+
+  animation: spinner 4s linear infinite;
+
+
+}
+
+
+ 
+
+
+@keyframes spinner {
+
+
+  0% { transform: rotate(0deg); }
+
+
+  100% { transform: rotate(360deg); }
+
+
+}
+
+
+
 
 `;

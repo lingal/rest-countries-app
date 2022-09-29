@@ -2,13 +2,12 @@ import {
   useState,
   createContext,
   useContext,
-  useEffect,
-  useCallback
+  useEffect
 } from 'react';
 
 import axios from 'axios';
 
-const url = 'https://restcountries.com/v3.1/';
+const url = 'https://restcountries.com/v2/';
 
 const AppContext = createContext();
 
@@ -18,20 +17,44 @@ const AppProvider = ({ children }) => {
   const [countries, setCountries] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [region, setRegion] = useState('');
+  const [data, setData] = useState([]);
+
+  const baseUrl = () => {
+    if (searchCountry) {
+      return `${url}${'/name/'}${searchCountry}`;
+    }
+    if (region && region !== 'All') {
+      return `${url}${'/region/'}${region}`;
+    }
+    return 'https://restcountries.com/v2/all';
+  };
 
   const getData = () => {
     axios
-      .get(`${url}${'/name/'}${searchCountry}`)
-      .then((resp) => setCountries(resp.data))
+      .get(baseUrl())
+      .then((resp) => {
+        setCountries(resp.data);
+      })
       .catch((err) => console.log(err))
       .finally(() => setIsLoading(false));
   };
 
+  const getRegions = () => {
+    axios
+      .get('https://restcountries.com/v2/all')
+      .then((resp) => {
+        setData(resp.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
   useEffect(() => {
     getData();
-  }, [searchCountry]);
+  }, [searchCountry, region]);
 
-  console.log(countries);
+  useEffect(() => {
+    getRegions();
+  }, []);
 
   return (
     <AppContext.Provider
@@ -42,7 +65,9 @@ const AppProvider = ({ children }) => {
         setSearchCountry,
         isLoading,
         setCountries,
-        setIsLoading
+        setIsLoading,
+        setRegion,
+        data
       }}
     >
       {children}

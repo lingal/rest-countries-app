@@ -1,6 +1,5 @@
 import React from 'react';
 import { useGlobalContext } from './context';
-// import useFetch from './components/useFetch';
 
 import Home from './components/pages/HomePage';
 import CountryPage from './components/pages/CountryPage';

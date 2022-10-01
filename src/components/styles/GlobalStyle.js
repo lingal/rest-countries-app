@@ -54,6 +54,7 @@ body {
 	background-color: var(${({ theme }) => theme.bg});
 	color: var(${({ theme }) => theme.fc});
 	text-transform: capitalize;
+	min-height: 100vh;
 }
 
 h1, h2 {
@@ -80,49 +81,5 @@ a {
 button {
 	color: inherit;
 }
-
-.loader {
-
-
-  margin: auto;
-
-
-  border: 20px solid #EAF0F6;
-
-
-  border-radius: 50%;
-
-
-  border-top: 20px solid #FF7A59;
-
-
-  width: 200px;
-
-
-  height: 200px;
-
-
-  animation: spinner 4s linear infinite;
-
-
-}
-
-
- 
-
-
-@keyframes spinner {
-
-
-  0% { transform: rotate(0deg); }
-
-
-  100% { transform: rotate(360deg); }
-
-
-}
-
-
-
 
 `;

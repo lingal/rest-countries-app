@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './components/styles/GlobalStyle';
 import Header from './components/Header';
-
+import Loader from './components/Loader';
 
 const Colors = {
   baseColors: {
@@ -33,7 +33,7 @@ function App() {
   const { isDarkMode, isLoading } = useGlobalContext();
 
   if (isLoading) {
-    return <h1>loading...</h1>;
+    return <Loader/>;
   }
 
   return (

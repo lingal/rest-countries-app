@@ -1,9 +1,4 @@
-import {
-  useState,
-  createContext,
-  useContext,
-  useEffect
-} from 'react';
+import { useState, createContext, useContext, useEffect } from 'react';
 
 import axios from 'axios';
 
@@ -19,10 +14,12 @@ const AppProvider = ({ children }) => {
   const [region, setRegion] = useState('');
   const [data, setData] = useState([]);
 
+
   const baseUrl = () => {
     if (searchCountry) {
       return `${url}${'/name/'}${searchCountry}`;
     }
+ 
     if (region && region !== 'All') {
       return `${url}${'/region/'}${region}`;
     }
@@ -45,7 +42,8 @@ const AppProvider = ({ children }) => {
       .then((resp) => {
         setData(resp.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => setIsLoading(false));
   };
 
   useEffect(() => {

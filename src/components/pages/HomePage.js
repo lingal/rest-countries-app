@@ -5,7 +5,11 @@ import CountriesList from '../CountriesList';
 import { HomeContainer } from '../styles/Home.styled';
 import { FlexContainer } from '../styles/ControlBar.styled';
 
+
+
 const Home = () => {
+
+
   return (
     <HomeContainer>
       <FlexContainer>

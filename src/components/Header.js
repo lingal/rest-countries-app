@@ -1,10 +1,10 @@
 import React from 'react';
 import { useGlobalContext } from '../context';
-import { FaMoon } from 'react-icons/fa';
+import { FaMoon, FaSun } from 'react-icons/fa';
 import { StyledHeader } from './styles/Header.styled';
 
 const Header = () => {
-  const { setIsDarkMode } = useGlobalContext();
+  const { setIsDarkMode, isDarkMode } = useGlobalContext();
 
   const handleDarkMode = () => {
     setIsDarkMode((prevState) => !prevState);
@@ -15,10 +15,9 @@ const Header = () => {
       <div>
         <h1>Where in the world?</h1>
         <button onClick={handleDarkMode}>
-          <span>
-            <FaMoon />
-          </span>
-          dark mode
+          {isDarkMode ? <FaSun /> : <FaMoon />}
+
+          <span>dark mode</span>
         </button>
       </div>
     </StyledHeader>

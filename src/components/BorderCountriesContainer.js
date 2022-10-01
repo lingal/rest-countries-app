@@ -5,18 +5,16 @@ const BorderCountriesContainer = ({ data }) => {
   return (
     <BorderCountriesStyled>
       <h3>border countries:</h3>
-     
-      {data?.map((item, idx) => {
-        return item ? (
-          <span>
+
+      <div>
+        {data?.map((item, idx) => {
+          return item ? (
             <Link key={idx} to={`/country/${item}`}>
               <span>{item}</span>
             </Link>
-          </span>
-        ) : null;
-      })}
-
-    
+          ) : null;
+        })}
+      </div>
     </BorderCountriesStyled>
   );
 };

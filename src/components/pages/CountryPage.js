@@ -4,8 +4,11 @@ import axios from 'axios';
 import { CountryPageContainer } from '../styles/CountryPage.styled';
 import { FaArrowLeft } from 'react-icons/fa';
 import BorderCountriesContainer from '../BorderCountriesContainer';
+import Loader from '../Loader';
+import { useGlobalContext } from '../../context';
 
 const CountryPage = () => {
+  const { setSearchCountry} = useGlobalContext();
   const { id } = useParams();
   const [country, setCountry] = useState({});
   const [loading, setLoading] = useState(true);
@@ -42,14 +45,12 @@ const CountryPage = () => {
     getCountry();
   }, [id]);
 
+
   if (loading) {
-    return <div className="loader"></div>;
+    return <Loader />;
   }
 
-  if (!country) {
-    return <h2>no country to display</h2>;
-  }
-
+  
   const languagesContainer = () => {
     const newLanguages = languages
       .map((item) => {
@@ -68,10 +69,11 @@ const CountryPage = () => {
     return newCurrencies;
   };
 
+
   return (
     <CountryPageContainer>
       <Link to="/">
-        <button>
+        <button onClick={() =>  setSearchCountry('')}>
           <span>
             <FaArrowLeft />
           </span>
@@ -80,7 +82,9 @@ const CountryPage = () => {
       </Link>
 
       <div>
-        <img src={flags.svg} alt={`a flag of ${name}`} />
+        <div className="image-container">
+          <img src={flags.svg} alt={`a flag of ${name}`} />
+        </div>
         <div>
           <h2>{name}</h2>
           <div className="desc">

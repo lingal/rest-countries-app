@@ -23,7 +23,7 @@ export const CountryCardContainer = styled.article`
   }
 
   img {
-    height: 10rem;
+    height: 8rem;
     width: 100%;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
